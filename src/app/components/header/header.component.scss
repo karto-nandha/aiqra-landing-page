@@ -1,0 +1,45 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+
+/* Keep container but enhance it */
+.container {
+  max-width: 1200px;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+/* NEW flex wrapper */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // 🔥 pushes logos apart
+}
+
+/* Existing logo */
+.logo {
+  height: auto;
+  width: 120px;
+  object-fit: contain;
+}
+
+/* Right logo tweaks */
+.right-logo {
+  height: auto;
+  width: 120px;
+}
+
+/* Responsive safeguard */
+@media (max-width: 480px) {
+  .logo {
+    height: 32px;
+  }
+
+  .right-logo {
+    height: 50px;
+  }
+}
