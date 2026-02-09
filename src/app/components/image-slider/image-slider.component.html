@@ -1,0 +1,23 @@
+<section class="slider-section">
+  <div class="container">
+    <div class="slider-wrapper">
+      <div
+        class="slider-track"
+        [class.no-transition]="disableTransition"
+        [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'"
+      >
+        <div class="slide">
+          <img [src]="images[images.length - 1]" alt="Slider Image" />
+        </div>
+
+        <div class="slide" *ngFor="let img of images">
+          <img [src]="img" alt="Slider Image" />
+        </div>
+
+        <div class="slide">
+          <img [src]="images[0]" alt="Slider Image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+/* ===== Slider Wrapper ===== */
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Track ===== */
+.slider-track {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.slider-track.no-transition {
+  transition: none !important;
+}
+
+/* ===== Slide ===== */
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ===== Image (1920 × 880 handling) ===== */
+.slide img {
+  width: 100%;
+  height: auto;
+
+  /* 🔑 preserve full image */
+  object-fit: fill;
+
+  /* 🔑 prevent layout jump */
+  aspect-ratio: 1920 / 880;
+
+  /* 🔑 keep it elegant */
+  max-height: 520px;
+  border-radius: 16px;
+  display: block;
+
+  background-color: #f5f6f8;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Large Desktop ===== */
+@media (min-width: 1440px) {
+  .slide img {
+    max-height: 560px;
+  }
+}
+
+/* ===== Laptop ===== */
+@media (max-width: 1200px) {
+  .slide img {
+    max-height: 480px;
+  }
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .slide img {
+    max-height: 380px;
+  }
+}
+
+/* ===== Mobile ===== */
+// @media (max-width: 768px) {
+//   .slider-section {
+//     padding: 48px 16px;
+//   }
+
+//   .slide img {
+//     max-height: 280px;
+//     border-radius: 12px;
+//   }
+// }
+
+/* ===== Small Mobile ===== */
+@media (max-width: 480px) {
+  .slide img {
+    max-height: 220px;
+    border-radius: 10px;
+  }
+}

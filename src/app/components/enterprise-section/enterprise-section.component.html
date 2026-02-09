@@ -1,0 +1,61 @@
+<section class="school-solutions">
+    <div class="container">
+        <div class="split-layout">
+            <div class="image-wrapper">
+
+                <!-- SLIDER -->
+                <div class="school-slider">
+                    <div class="slider-track" [class.no-transition]="disableTransition"
+                        [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+                        <!-- clone last -->
+                        <div class="slide">
+                            <img [src]="images[images.length - 1]" alt="School Slide" />
+                        </div>
+
+                        <!-- real slides -->
+                        <div class="slide" *ngFor="let img of images">
+                            <img [src]="img" alt="School Slide" />
+                        </div>
+
+                        <!-- clone first -->
+                        <div class="slide">
+                            <img [src]="images[0]" alt="School Slide" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BUTTON -->
+                <a href="https://uat-lms.career-shaper.com/local/batchautoenrol/ssologin.php?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdG5hbWUiOiJBSSIsImxhc3RuYW1lIjoiTExNIiwiZW1haWwiOiJhaWxsbTFAY3MuY29tIiwiYmF0Y2hpZCI6IjM1MzYifQ.tMmSczTGmCSFfPMiXktdhiudVxW3SOOUHQQybLcv0ak"
+                    target="_blank" rel="noopener" class="image-cta-btn">Explore Enterprise</a>
+            </div>
+
+            <div class="content-wrapper">
+                <span class="category-badge">
+                    <img src="assets/images/team_icon.png" alt="ENTERPRISE SOLUTIONS">
+                    ENTERPRISE SOLUTIONS
+                </span>
+                <h2>For Enterprises: Upskilling Teams for Competitive Advantage</h2>
+
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <h3>Assess Current Skills</h3>
+                        <p>Evaluate team capabilities and identify gaps in AI and data literacy across departments.</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Custom Training Paths</h3>
+                        <p>Design tailored curricula addressing specific industry needs and business objectives.</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Hands-On Implementation</h3>
+                        <p>Apply learning through real business challenges using AI-driven insights and solutions.</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Track Performance</h3>
+                        <p>Gain clear visibility into team progress, skill development, and business impact through
+                            comprehensive performance dashboards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

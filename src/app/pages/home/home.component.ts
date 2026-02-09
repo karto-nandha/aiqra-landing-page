@@ -2,11 +2,15 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ImageSliderComponent } from "../../components/image-slider/image-slider.component";
+import { SchoolSectionComponent } from "../../components/school-section/school-section.component";
+import { UniversitySectionComponent } from "../../components/university-section/university-section.component";
+import { EnterpriseSectionComponent } from "../../components/enterprise-section/enterprise-section.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, ImageSliderComponent, SchoolSectionComponent, UniversitySectionComponent, EnterpriseSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

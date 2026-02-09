@@ -1,159 +1,159 @@
 // ================= VARIABLES =================
-$primary-text: #2f2f2f;
-$secondary-text: #555555;
-$brand-red: #c0272d;
-$badge-bg: #fff5f5;
-$border-light: #ffd6d6;
-$font-main: 'Inter', sans-serif;
+// $primary-text: #2f2f2f;
+// $secondary-text: #555555;
+// $brand-red: #c0272d;
+// $badge-bg: #fff5f5;
+// $border-light: #ffd6d6;
+// $font-main: 'Inter', sans-serif;
 
-// ================= HERO SECTION =================
-.hero-section {
-  position: relative;
-  padding: clamp(55px, 6vw, 90px) 20px 65px; // 🔥 reduced
-  background-color: #ffffff;
-  overflow: hidden;
+// // ================= HERO SECTION =================
+// .hero-section {
+//   position: relative;
+//   padding: clamp(55px, 6vw, 90px) 20px 65px; // 🔥 reduced
+//   background-color: #ffffff;
+//   overflow: hidden;
 
-  // TOP BACKGROUND STRIP
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 50%;
-    background-image: url('/aiqra_website/landing_page/assets/images/hero_bg.png');
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: 100% auto; // 🔥 slightly reduced
-    opacity: 0.5;
-    z-index: 1;
-    pointer-events: none;
-  }
+//   // TOP BACKGROUND STRIP
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 50%;
+//     background-image: url('/aiqra_website/landing_page/assets/images/hero_bg.png');
+//     background-repeat: no-repeat;
+//     background-position: top center;
+//     background-size: 100% auto; // 🔥 slightly reduced
+//     opacity: 0.5;
+//     z-index: 1;
+//     pointer-events: none;
+//   }
 
-  .container {
-    max-width: 1240px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
+//   .container {
+//     max-width: 1240px;
+//     margin: 0 auto;
+//     position: relative;
+//     z-index: 2;
+//   }
 
-  .hero-content {
-    max-width: 960px;
+//   .hero-content {
+//     max-width: 960px;
 
-    // BADGE
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
-      background: $badge-bg;
-      color: $brand-red;
-      font-size: 0.7rem; // 🔥 reduced
-      font-weight: 700;
-      border: 1px solid $border-light;
-      border-radius: 6px;
-      margin-bottom: 10px;
+//     // BADGE
+//     .badge {
+//       display: inline-flex;
+//       align-items: center;
+//       gap: 8px;
+//       padding: 5px 12px;
+//       background: $badge-bg;
+//       color: $brand-red;
+//       font-size: 0.7rem; // 🔥 reduced
+//       font-weight: 700;
+//       border: 1px solid $border-light;
+//       border-radius: 6px;
+//       margin-bottom: 10px;
 
-      img {
-        width: 15px;
-      }
-    }
+//       img {
+//         width: 15px;
+//       }
+//     }
 
-    // HEADING
-    h1 {
-      font-family: $font-main;
-      font-size: clamp(1.95rem, 3.8vw, 3rem); // 🔥 reduced
-      line-height: 1.2;
-      font-weight: 800;
-      color: $primary-text;
-      margin-top: 8px;
-      margin-bottom: 16px;
-    }
+//     // HEADING
+//     h1 {
+//       font-family: $font-main;
+//       font-size: clamp(1.95rem, 3.8vw, 3rem); // 🔥 reduced
+//       line-height: 1.2;
+//       font-weight: 800;
+//       color: $primary-text;
+//       margin-top: 8px;
+//       margin-bottom: 16px;
+//     }
 
-    // PARAGRAPH
-    p {
-      font-size: clamp(0.92rem, 1vw, 1rem); // 🔥 reduced
-      line-height: 1.55;
-      color: $secondary-text;
-      margin-bottom: 26px;
-      max-width: 95%;
-    }
+//     // PARAGRAPH
+//     p {
+//       font-size: clamp(0.92rem, 1vw, 1rem); // 🔥 reduced
+//       line-height: 1.55;
+//       color: $secondary-text;
+//       margin-bottom: 26px;
+//       max-width: 95%;
+//     }
 
-    // BUTTON
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 30px; // 🔥 reduced
-      border-radius: 8px;
-      border: 1.5px solid $brand-red;
-      color: $brand-red;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
+//     // BUTTON
+//     .btn-outline {
+//       display: inline-flex;
+//       align-items: center;
+//       justify-content: center;
+//       padding: 11px 30px; // 🔥 reduced
+//       border-radius: 8px;
+//       border: 1.5px solid $brand-red;
+//       color: $brand-red;
+//       font-size: 0.9rem;
+//       font-weight: 600;
+//       text-decoration: none;
+//       transition: all 0.3s ease;
 
-      &:hover {
-        background-color: $brand-red;
-        color: #fff;
-        transform: translateY(-1px);
-      }
-    }
-  }
-}
+//       &:hover {
+//         background-color: $brand-red;
+//         color: #fff;
+//         transform: translateY(-1px);
+//       }
+//     }
+//   }
+// }
 
-@media (max-width: 1024px) {
-  .hero-section {
-    padding: 50px 18px 60px;
+// @media (max-width: 1024px) {
+//   .hero-section {
+//     padding: 50px 18px 60px;
 
-    &::before {
-      background-size: 92% auto;
-      opacity: 0.42;
-    }
+//     &::before {
+//       background-size: 92% auto;
+//       opacity: 0.42;
+//     }
 
-    .hero-content {
-      max-width: 680px;
-    }
-  }
-}
+//     .hero-content {
+//       max-width: 680px;
+//     }
+//   }
+// }
 
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 48px 16px 55px;
-    text-align: center;
+// @media (max-width: 768px) {
+//   .hero-section {
+//     padding: 48px 16px 55px;
+//     text-align: center;
 
-    &::before {
-      background-position: center top;
-      background-size: cover;
-      opacity: 0.3;
-    }
+//     &::before {
+//       background-position: center top;
+//       background-size: cover;
+//       opacity: 0.3;
+//     }
 
-    .hero-content {
-      max-width: 100%;
+//     .hero-content {
+//       max-width: 100%;
 
-      .badge {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  }
-}
+//       .badge {
+//         margin-left: auto;
+//         margin-right: auto;
+//       }
+//     }
+//   }
+// }
 
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 45px 14px 52px;
+// @media (max-width: 480px) {
+//   .hero-section {
+//     padding: 45px 14px 52px;
 
-    .hero-content {
-      h1 {
-        font-size: 1.6rem; // 🔥 reduced
-      }
+//     .hero-content {
+//       h1 {
+//         font-size: 1.6rem; // 🔥 reduced
+//       }
 
-      p {
-        font-size: 0.88rem;
-      }
-    }
-  }
-}
+//       p {
+//         font-size: 0.88rem;
+//       }
+//     }
+//   }
+// }
 
 
 
@@ -444,202 +444,6 @@ $transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
   }
 }
-
-
-
-// Shared Design Tokens (same as previous sections)
-$primary-dark: #333333;
-$text-gray: #555555;
-$accent-red: #c0272d;
-$card-border: #d1d1d1;
-$badge-bg: #fff5f5;
-
-$transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-.school-solutions {
-  padding: 90px 0;
-  background-color: #ffffff;
-  overflow: hidden;
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .split-layout {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-  }
-
-  /* ---------- Image Column CTA ---------- */
-  .image-wrapper {
-    flex: 0.6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .mesh-image {
-      width: 100%;
-      max-width: 520px;
-      height: auto;
-      object-fit: contain;
-      margin-bottom: 22px; // space before button
-    }
-
-    .image-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 30px;
-      border-radius: 10px;
-      border: 1.5px solid $accent-red;
-      color: $accent-red;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: $transition;
-      background: #ffffff;
-
-      &:hover {
-        background-color: $accent-red;
-        color: #ffffff;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(192, 39, 45, 0.25);
-      }
-    }
-  }
-
-
-  /* ---------- Content ---------- */
-  .content-wrapper {
-    flex: 1.4;
-
-    .category-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background-color: $badge-bg;
-      color: $accent-red;
-      font-size: 0.8rem;
-      font-weight: 700;
-      border: 1px solid #ffcccc;
-      border-radius: 6px;
-      margin-bottom: 12px;
-
-      img {
-        width: 18px;
-        height: auto;
-      }
-    }
-
-    h2 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: $primary-dark;
-      line-height: 1.25;
-      margin-bottom: 35px;
-      margin-top: 0;
-    }
-  }
-
-  /* ---------- Cards Grid ---------- */
-  .solutions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-  }
-
-  .solution-card {
-    border: 1.5px solid $card-border;
-    border-radius: 14px;
-    padding: 28px 32px;
-    position: relative;
-    overflow: hidden;
-    transition: $transition;
-    background: #ffffff;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-      background-color: $accent-red;
-    }
-
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-    }
-
-    h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: $primary-dark;
-      margin-bottom: 12px;
-    }
-
-    p {
-      font-size: 1.02rem;
-      color: $text-gray;
-      line-height: 1.6;
-      margin: 0;
-    }
-  }
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 992px) {
-  .school-solutions {
-    padding: 70px 0;
-
-    .split-layout {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .image-wrapper {
-      order: 2;
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    .content-wrapper {
-      h2 {
-        font-size: 2.2rem;
-      }
-    }
-
-    .solutions-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .solution-card {
-      text-align: left;
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .school-solutions {
-    padding: 55px 0;
-
-    .content-wrapper h2 {
-      font-size: 1.9rem;
-    }
-
-    .solution-card {
-      padding: 24px 22px;
-    }
-  }
-}
-
-
 
 
 // Shared Tokens (same as other sections)

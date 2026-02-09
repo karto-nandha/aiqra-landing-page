@@ -1,0 +1,73 @@
+<section class="school-solutions">
+    <div class="container">
+        <div class="split-layout">
+
+            <!-- LEFT IMAGE COLUMN -->
+            <div class="image-wrapper">
+
+                <!-- SLIDER -->
+                <div class="school-slider">
+                    <div class="slider-track" [class.no-transition]="disableTransition"
+                        [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+                        <!-- clone last -->
+                        <div class="slide">
+                            <img [src]="images[images.length - 1]" alt="School Slide" />
+                        </div>
+
+                        <!-- real slides -->
+                        <div class="slide" *ngFor="let img of images">
+                            <img [src]="img" alt="School Slide" />
+                        </div>
+
+                        <!-- clone first -->
+                        <div class="slide">
+                            <img [src]="images[0]" alt="School Slide" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BUTTON -->
+                <a href="https://uat-lms.career-shaper.com/local/batchautoenrol/ssologin.php?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    target="_blank" rel="noopener" class="image-cta-btn">
+                    Explore Schools
+                </a>
+            </div>
+
+
+            <!-- RIGHT CONTENT -->
+            <div class="content-wrapper">
+                <span class="category-badge">
+                    <img src="assets/images/school_icon.png" alt="SCHOOL SOLUTIONS">
+                    SCHOOL SOLUTIONS
+                </span>
+
+                <h2>For Schools: Building Tomorrow's Innovators Early</h2>
+
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <h3>Interactive Learning Modules</h3>
+                        <p>Access age-appropriate AI and data science curricula, making complex concepts engaging and
+                            easy to understand.</p>
+                    </div>
+
+                    <div class="solution-card">
+                        <h3>Hands-On Projects</h3>
+                        <p>Students build foundational skills with real-world datasets through guided projects, seeing
+                            immediate impact.</p>
+                    </div>
+
+                    <div class="solution-card">
+                        <h3>Progress Tracking & Analytics</h3>
+                        <p>Educators gain real-time insights into student engagement and learning outcomes.</p>
+                    </div>
+
+                    <div class="solution-card">
+                        <h3>Certification & Recognition</h3>
+                        <p>Students earn industry-recognized certificates, validating their achievements.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
