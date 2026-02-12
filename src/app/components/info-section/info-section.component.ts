@@ -2,20 +2,20 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-university-section',
+  selector: 'app-info-section',
   imports: [NgFor],
-  templateUrl: './university-section.component.html',
-  styleUrl: './university-section.component.scss'
+  templateUrl: './info-section.component.html',
+  styleUrl: './info-section.component.scss'
 })
-export class UniversitySectionComponent {
+export class InfoSectionComponent {
 
   images: string[] = [
-    'assets/images/slider_university_1.webp',
-    'assets/images/slider_university_2.webp',
-    'assets/images/slider_university_1.webp',
-    'assets/images/slider_university_2.webp',
-    'assets/images/slider_university_1.webp',
-    'assets/images/slider_university_2.webp'
+    'assets/images/slider_info_1.webp',
+    'assets/images/slider_info_2.webp',
+    'assets/images/slider_info_3.webp',
+    'assets/images/slider_info_4.webp',
+    'assets/images/slider_info_5.webp',
+    'assets/images/slider_info_6.webp'
   ];
 
   currentIndex = 1;

@@ -1,64 +1,74 @@
 <section class="university-solutions">
-    <div class="container">
-        <div class="split-layout">
-            <div class="image-wrapper">
+  <div class="container">
+    <div class="split-layout">
 
-                <!-- SLIDER -->
-                <div class="university-slider">
-                    <div class="slider-track" [class.no-transition]="disableTransition"
-                        [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
-                        <!-- clone last -->
-                        <div class="slide">
-                            <img [src]="images[images.length - 1]" alt="University Slide" />
-                        </div>
+      <!-- LEFT IMAGE COLUMN -->
+      <div class="image-wrapper">
 
-                        <!-- real slides -->
-                        <div class="slide" *ngFor="let img of images">
-                            <img [src]="img" alt="University Slide" />
-                        </div>
+        <div class="university-slider">
+          <div class="slider-track" [class.no-transition]="disableTransition"
+            [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
 
-                        <!-- clone first -->
-                        <div class="slide">
-                            <img [src]="images[0]" alt="University Slide" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BUTTON -->
-                <a href="https://uat-lms.career-shaper.com/local/batchautoenrol/ssologin.php?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdG5hbWUiOiJCdXNpbmVzcyIsImxhc3RuYW1lIjoiQW5hbHlzdCIsImVtYWlsIjoiYmFhbmFseXN0M0Bjcy5jb20iLCJiYXRjaGlkIjoiMzUzOCJ9.R0FvO2oPDuWRdluGEx-w-D1U5-qYNJQvYeVxfof_nsM"
-                    target="_blank" rel="noopener" class="image-cta-btn">Explore University</a>
+            <!-- clone last -->
+            <div class="slide">
+              <img [src]="images[images.length - 1]" alt="University Slide" />
             </div>
 
-            <div class="content-wrapper">
-                <span class="category-badge">
-                    <img src="assets/images/education_icon.png" alt="HIGHER EDUCATION SOLUTION">
-                    HIGHER EDUCATION SOLUTION
-                </span>
-                <h2>For Universities: Advancing Career Readiness</h2>
-
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <h3>Industry-Standard Tools & Platforms</h3>
-                        <p>Access leading ML frameworks, cloud computing resources, and cutting-edge software used by
-                            professionals.</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Expert Mentorship</h3>
-                        <p>Connect with industry leaders and academic specialists for personalized guidance and project
-                            feedback.</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Flexible Learning Formats</h3>
-                        <p>Choose from online, hybrid, and in-person learning options that fit your schedule and
-                            learning style.</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Certification Programs</h3>
-                        <p>Earn recognized certifications that validate your skills and enhance your career prospects in
-                            the AI and data fields.</p>
-                    </div>
-                </div>
+            <!-- real slides -->
+            <div class="slide" *ngFor="let img of images">
+              <img [src]="img" alt="University Slide" />
             </div>
+
+            <!-- clone first -->
+            <div class="slide">
+              <img [src]="images[0]" alt="University Slide" />
+            </div>
+          </div>
         </div>
+
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="content-wrapper">
+        <span class="category-badge">
+          <img src="assets/images/education_icon.png" alt="HIGHER EDUCATION SOLUTION">
+          HIGHER EDUCATION SOLUTION
+        </span>
+
+        <h2>For Universities: Advancing Career Readiness</h2>
+
+        <div class="solutions-grid">
+          <div class="solution-card">
+            <h3>Industry-Standard Tools & Platforms</h3>
+            <p>Access leading ML frameworks, cloud computing resources, and cutting-edge software used by professionals.
+            </p>
+          </div>
+
+          <div class="solution-card">
+            <h3>Expert Mentorship</h3>
+            <p>Connect with industry leaders and academic specialists for personalized guidance and project feedback.
+            </p>
+          </div>
+
+          <div class="solution-card">
+            <h3>Flexible Learning Formats</h3>
+            <p>Choose from online, hybrid, and in-person learning options that fit your schedule and learning style.</p>
+          </div>
+
+          <div class="solution-card">
+            <h3>Certification Programs</h3>
+            <p>Earn recognized certifications that validate your skills and enhance your career prospects in the AI and
+              data fields.</p>
+          </div>
+        </div>
+
+        <!-- CTA BUTTON (MOVED TO RIGHT) -->
+        <div class="cta-wrapper">
+          <a href="https://uat-lms.career-shaper.com/local/batchautoenrol/ssologin.php?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdG5hbWUiOiJCdXNpbmVzcyIsImxhc3RuYW1lIjoiQW5hbHlzdCIsImVtYWlsIjoiYmFhbmFseXN0M0Bjcy5jb20iLCJiYXRjaGlkIjoiMzUzOCJ9.R0FvO2oPDuWRdluGEx-w-D1U5-qYNJQvYeVxfof_nsM"
+            target="_blank" rel="noopener" class="image-cta-btn">Explore University</a>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>

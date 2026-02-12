@@ -1,0 +1,55 @@
+<section class="info-split-section">
+  <div class="container">
+    <div class="split-grid">
+
+      <!-- LEFT SLIDER COLUMN -->
+      <div class="image-column">
+        <div class="info-slider">
+          <div class="slider-track" [class.no-transition]="disableTransition"
+               [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+
+            <!-- clone last -->
+            <div class="slide">
+              <img [src]="images[images.length - 1]" alt="AI Skills Slide">
+            </div>
+
+            <!-- real slides -->
+            <div class="slide" *ngFor="let img of images">
+              <img [src]="img" alt="AI Skills Slide">
+            </div>
+
+            <!-- clone first -->
+            <div class="slide">
+              <img [src]="images[0]" alt="AI Skills Slide">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT CONTENT COLUMN -->
+      <div class="content-column">
+        <h2>Why AI & Data Skills Matter Today</h2>
+
+        <div class="info-card">
+          <h3>The Transformation is Here</h3>
+          <p>
+            The AI and data revolution is transforming every industry, making these
+            skills essential for innovation and competitiveness. Organizations
+            globally are rapidly adopting AI-driven solutions to thrive in this new era.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Bridging the Gap</h3>
+          <p>
+            Our Academy addresses the critical shortage of AI-ready talent with tailored
+            programs for every learning stage. We provide comprehensive pathways to
+            transform beginners into experts.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

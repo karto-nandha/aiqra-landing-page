@@ -1,45 +1,81 @@
+/* ================= HEADER ================= */
 .header {
   position: sticky;
   top: 0;
   background: #ffffff;
-  z-index: 10;
-  border-bottom: 1px solid #eee;
+  z-index: 100;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Keep container but enhance it */
+/* ================= CONTAINER ================= */
 .container {
   max-width: 1200px;
-  padding: 16px;
   margin: 0 auto;
+  padding: 14px 20px;
 }
 
-/* NEW flex wrapper */
+/* ================= FLEX LAYOUT ================= */
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between; // 🔥 pushes logos apart
+  justify-content: space-between;
 }
 
-/* Existing logo */
-.logo {
+/* ================= LEFT LOGO ================= */
+.left-logo .logo {
+  width: clamp(120px, 14vw, 180px);
   height: auto;
-  width: 120px;
   object-fit: contain;
 }
 
-/* Right logo tweaks */
-.right-logo {
-  height: auto;
-  width: 120px;
+/* ================= RIGHT LOGOS ================= */
+.right-logos {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  img {
+  height: 30px;     // 🔥 Main control
+  width: auto;      // keeps aspect ratio
+  object-fit: contain;
+  display: block;
+}
 }
 
-/* Responsive safeguard */
-@media (max-width: 480px) {
-  .logo {
-    height: 32px;
+.small-logo {
+  width: clamp(70px, 8vw, 110px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px 16px;
   }
 
-  .right-logo {
-    height: 50px;
+  // .small-logo {
+  //   width: clamp(60px, 10vw, 90px);
+  // }
+
+  .right-logos img {
+    height: 30px;
+  }
+
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+  .header-inner {
+    gap: 10px;
+  }
+
+  .left-logo .logo {
+    width: 100px;
+  }
+
+  .right-logos img {
+    height: 25px;
+    width: auto !important;
   }
 }

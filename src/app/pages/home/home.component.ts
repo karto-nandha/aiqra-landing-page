@@ -6,11 +6,12 @@ import { ImageSliderComponent } from "../../components/image-slider/image-slider
 import { SchoolSectionComponent } from "../../components/school-section/school-section.component";
 import { UniversitySectionComponent } from "../../components/university-section/university-section.component";
 import { EnterpriseSectionComponent } from "../../components/enterprise-section/enterprise-section.component";
+import { InfoSectionComponent } from "../../components/info-section/info-section.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, ImageSliderComponent, SchoolSectionComponent, UniversitySectionComponent, EnterpriseSectionComponent],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, ImageSliderComponent, SchoolSectionComponent, UniversitySectionComponent, EnterpriseSectionComponent, InfoSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
