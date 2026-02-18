@@ -18,7 +18,7 @@ import { InfoSectionComponent } from "../../components/info-section/info-section
 export class HomeComponent {
 // ng build --base-href /aiqra_website/landing_page/
 
-  email = 'contact@aiqra.com';
+  email = 'b2bsupport@ooredoo.om';
   apiUrl = 'https://devapi.rcmhire.com';
 
   contactForm: FormGroup;
@@ -66,7 +66,8 @@ export class HomeComponent {
       fullName: this.contactForm.value.fullName.trim(),
       organisation: this.contactForm.value.organisation.trim(),
       email: this.contactForm.value.email.trim(),
-      message: this.contactForm.value.message.trim()
+      message: this.contactForm.value.message.trim(),
+      form_type: "contact_form"
     };
 
     this.http.post(`${this.apiUrl}/contact/form_submit`, payload)
