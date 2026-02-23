@@ -156,13 +156,16 @@
 
               <div class="form-group" [class.has-error]="f['mobile'].touched && f['mobile'].invalid">
                 <label>Mobile Number</label>
-                <input type="tel" formControlName="mobile" maxlength="10" inputmode="numeric" pattern="[0-9]*"
-                  (keypress)="allowOnlyPhone($event)">
+
+                <input type="tel" formControlName="mobile" placeholder="+91 1234567890" inputmode="tel"
+                  (keypress)="allowOnlyPhone($event)" />
+
                 <small *ngIf="f['mobile'].touched && f['mobile'].errors?.['required']">
                   Mobile number is required
                 </small>
+
                 <small *ngIf="f['mobile'].touched && f['mobile'].errors?.['pattern']">
-                  Enter a valid 10 digit mobile number
+                  Enter valid number with country code (e.g., +91 1234567890)
                 </small>
               </div>
             </div>
@@ -173,7 +176,7 @@
               <div class="select-wrapper">
                 <select formControlName="areaOfInterest">
                   <option value="" disabled>Select the area</option>
-                  <option value="ai-academy">AI Academy</option>
+                  <option value="ai-and-data-academy">AI and Data Academy</option>
                   <option value="ai-products">AI Product Suite</option>
                   <option value="ai-consulting">AI Consulting</option>
                   <option value="other">Other</option>
@@ -243,9 +246,12 @@
             <div class="social-connect">
               <h4>Connect with Us</h4>
               <div class="social-icons">
-                <a target="_blank" href="https://www.linkedin.com/company/ooredoooman"><img src="assets/images/ai_li_icon.svg"></a>
-                <a target="_blank" href="https://www.facebook.com/OoredooOman"><img src="assets/images/ai_fb_icon.svg"></a>
-                <a target="_blank" href="https://www.instagram.com/OoredooOman/"><img src="assets/images/ai_insta_icon.svg"></a>
+                <a target="_blank" href="https://www.linkedin.com/company/ooredoooman"><img
+                    src="assets/images/ai_li_icon.svg"></a>
+                <a target="_blank" href="https://www.facebook.com/OoredooOman"><img
+                    src="assets/images/ai_fb_icon.svg"></a>
+                <a target="_blank" href="https://www.instagram.com/OoredooOman/"><img
+                    src="assets/images/ai_insta_icon.svg"></a>
               </div>
             </div>
 

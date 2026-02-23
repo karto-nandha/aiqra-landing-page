@@ -16,7 +16,7 @@ import { InfoSectionComponent } from "../../components/info-section/info-section
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-// ng build --base-href /aiqra_website/landing_page/
+  // ng build --base-href /aiqra_website/ai_and_data_academy/
 
   email = 'b2bsupport@ooredoo.om';
   apiUrl = 'https://devapi.rcmhire.com';
@@ -36,7 +36,7 @@ export class HomeComponent {
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [
         Validators.required,
-        Validators.pattern('^[0-9]{10}$')
+        Validators.pattern('^\\+[1-9]\\d{0,2}\\s[0-9]{10}$')
       ]],
       areaOfInterest: ['', Validators.required],
       message: ['', [
@@ -86,11 +86,51 @@ export class HomeComponent {
       });
   }
 
-  // ✔ Allow numbers only for mobile
   allowOnlyPhone(event: KeyboardEvent) {
     const char = event.key;
-    if (!/[0-9]/.test(char)) {
-      event.preventDefault();
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+    const cursorPos = input.selectionStart ?? 0;
+
+    // Allow control keys
+    if (
+      event.key === 'Backspace' ||
+      event.key === 'Delete' ||
+      event.key === 'ArrowLeft' ||
+      event.key === 'ArrowRight' ||
+      event.key === 'Tab'
+    ) {
+      return;
     }
+
+    // Allow + only at first position
+    if (char === '+' && cursorPos === 0 && !value.includes('+')) {
+      return;
+    }
+
+    // Allow only one space
+    if (char === ' ' && !value.includes(' ')) {
+      return;
+    }
+
+    // Allow digits
+    if (/[0-9]/.test(char)) {
+      const parts = value.split(' ');
+
+      // If space exists
+      if (parts.length === 2) {
+        const numberPartStart = value.indexOf(' ') + 1;
+
+        // Restrict to 10 digits after space
+        if (cursorPos >= numberPartStart) {
+          if (parts[1].length >= 10) {
+            event.preventDefault();
+          }
+        }
+      }
+      return;
+    }
+
+    event.preventDefault();
   }
 }
