@@ -157,15 +157,15 @@
               <div class="form-group" [class.has-error]="f['mobile'].touched && f['mobile'].invalid">
                 <label>Mobile Number</label>
 
-                <input type="tel" formControlName="mobile" placeholder="+91 1234567890" inputmode="tel"
-                  (keypress)="allowOnlyPhone($event)" />
+                <input type="tel" formControlName="mobile" placeholder="+919876543210" inputmode="tel"
+                 maxlength="16" (keypress)="allowOnlyPhone($event)" />
 
                 <small *ngIf="f['mobile'].touched && f['mobile'].errors?.['required']">
                   Mobile number is required
                 </small>
 
                 <small *ngIf="f['mobile'].touched && f['mobile'].errors?.['pattern']">
-                  Enter valid number with country code (e.g., +91 1234567890)
+                  Enter valid number with country code (e.g., +919876543210)
                 </small>
               </div>
             </div>

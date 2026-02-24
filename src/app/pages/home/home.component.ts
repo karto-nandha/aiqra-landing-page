@@ -19,7 +19,7 @@ export class HomeComponent {
   // ng build --base-href /aiqra_website/ai_and_data_academy/
 
   email = 'b2bsupport@ooredoo.om';
-  apiUrl = 'https://devapi.rcmhire.com';
+  apiUrl = 'https://aiqra.com.om/mailer.php';
 
   contactForm: FormGroup;
   isSubmitting = false;
@@ -36,7 +36,7 @@ export class HomeComponent {
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [
         Validators.required,
-        Validators.pattern('^\\+[1-9]\\d{0,2}\\s[0-9]{10}$')
+        Validators.pattern('^\\+[1-9]\\d{7,14}$')
       ]],
       areaOfInterest: ['', Validators.required],
       message: ['', [
@@ -62,35 +62,85 @@ export class HomeComponent {
     this.errorMessage = '';
 
     const payload = {
-      ...this.contactForm.value,
       fullName: this.contactForm.value.fullName.trim(),
       organisation: this.contactForm.value.organisation.trim(),
       email: this.contactForm.value.email.trim(),
-      message: this.contactForm.value.message.trim(),
-      form_type: "contact_form"
+      mobile: this.contactForm.value.mobile,
+      areaOfInterest: this.contactForm.value.areaOfInterest,
+      message: this.contactForm.value.message.trim()
     };
 
-    this.http.post(`${this.apiUrl}/contact/form_submit`, payload)
-      .subscribe({
-        next: () => {
-          this.successMessage =
-            'Thank you! We will contact you within 1–2 business days.';
-          this.contactForm.reset();
-          this.isSubmitting = false;
-        },
-        error: () => {
-          this.errorMessage =
-            'Something went wrong. Please try again later.';
-          this.isSubmitting = false;
-        }
-      });
+    const formData = new FormData();
+    Object.keys(payload).forEach(key => {
+      formData.append(key, (payload as any)[key]);
+    });
+
+    this.http.post(this.apiUrl, formData).subscribe({
+      next: (res: any) => {
+        console.log("Success:", res);
+        this.successMessage = res.message || 'Thank you! We will contact you soon.';
+        this.contactForm.reset();
+        this.isSubmitting = false;
+      },
+      error: (err) => {
+        console.log("Error:", err);
+        this.errorMessage = 'Something went wrong. Please try again later.';
+        this.isSubmitting = false;
+      }
+    });
   }
 
+  // allowOnlyPhone(event: KeyboardEvent) {
+  //   const char = event.key;
+  //   const input = event.target as HTMLInputElement;
+  //   const value = input.value;
+  //   const cursorPos = input.selectionStart ?? 0;
+
+  //   // Allow control keys
+  //   if (
+  //     event.key === 'Backspace' ||
+  //     event.key === 'Delete' ||
+  //     event.key === 'ArrowLeft' ||
+  //     event.key === 'ArrowRight' ||
+  //     event.key === 'Tab'
+  //   ) {
+  //     return;
+  //   }
+
+  //   // Allow + only at first position
+  //   if (char === '+' && cursorPos === 0 && !value.includes('+')) {
+  //     return;
+  //   }
+
+  //   // Allow only one space
+  //   if (char === ' ' && !value.includes(' ')) {
+  //     return;
+  //   }
+
+  //   // Allow digits
+  //   if (/[0-9]/.test(char)) {
+  //     const parts = value.split(' ');
+
+  //     // If space exists
+  //     if (parts.length === 2) {
+  //       const numberPartStart = value.indexOf(' ') + 1;
+
+  //       // Restrict to 10 digits after space
+  //       if (cursorPos >= numberPartStart) {
+  //         if (parts[1].length >= 10) {
+  //           event.preventDefault();
+  //         }
+  //       }
+  //     }
+  //     return;
+  //   }
+
+  //   event.preventDefault();
+  // }
+
   allowOnlyPhone(event: KeyboardEvent) {
-    const char = event.key;
     const input = event.target as HTMLInputElement;
     const value = input.value;
-    const cursorPos = input.selectionStart ?? 0;
 
     // Allow control keys
     if (
@@ -104,29 +154,16 @@ export class HomeComponent {
     }
 
     // Allow + only at first position
-    if (char === '+' && cursorPos === 0 && !value.includes('+')) {
+    if (event.key === '+' && value.length === 0) {
       return;
     }
 
-    // Allow only one space
-    if (char === ' ' && !value.includes(' ')) {
-      return;
-    }
-
-    // Allow digits
-    if (/[0-9]/.test(char)) {
-      const parts = value.split(' ');
-
-      // If space exists
-      if (parts.length === 2) {
-        const numberPartStart = value.indexOf(' ') + 1;
-
-        // Restrict to 10 digits after space
-        if (cursorPos >= numberPartStart) {
-          if (parts[1].length >= 10) {
-            event.preventDefault();
-          }
-        }
+    // Allow digits only
+    if (/[0-9]/.test(event.key)) {
+      // Prevent more than 15 digits (excluding +)
+      const digitsOnly = value.replace('+', '');
+      if (digitsOnly.length >= 15) {
+        event.preventDefault();
       }
       return;
     }
