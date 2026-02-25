@@ -16,6 +16,7 @@ import { InfoSectionComponent } from "../../components/info-section/info-section
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  // ng build --base-href /aiqra_website/ooredoo/
   // ng build --base-href /aiqra_website/ai_and_data_academy/
 
   email = 'b2bsupport@ooredoo.om';
@@ -36,7 +37,7 @@ export class HomeComponent {
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [
         Validators.required,
-        Validators.pattern('^\\+[1-9]\\d{7,14}$')
+        Validators.pattern(/^\+[1-9]\d{0,3}\s?\d{6,14}$/)
       ]],
       areaOfInterest: ['', Validators.required],
       message: ['', [
@@ -65,7 +66,7 @@ export class HomeComponent {
       fullName: this.contactForm.value.fullName.trim(),
       organisation: this.contactForm.value.organisation.trim(),
       email: this.contactForm.value.email.trim(),
-      mobile: this.contactForm.value.mobile,
+      mobile: this.contactForm.value.mobile.replace(/\s+/g, ''),
       areaOfInterest: this.contactForm.value.areaOfInterest,
       message: this.contactForm.value.message.trim()
     };
@@ -90,59 +91,10 @@ export class HomeComponent {
     });
   }
 
-  // allowOnlyPhone(event: KeyboardEvent) {
-  //   const char = event.key;
-  //   const input = event.target as HTMLInputElement;
-  //   const value = input.value;
-  //   const cursorPos = input.selectionStart ?? 0;
-
-  //   // Allow control keys
-  //   if (
-  //     event.key === 'Backspace' ||
-  //     event.key === 'Delete' ||
-  //     event.key === 'ArrowLeft' ||
-  //     event.key === 'ArrowRight' ||
-  //     event.key === 'Tab'
-  //   ) {
-  //     return;
-  //   }
-
-  //   // Allow + only at first position
-  //   if (char === '+' && cursorPos === 0 && !value.includes('+')) {
-  //     return;
-  //   }
-
-  //   // Allow only one space
-  //   if (char === ' ' && !value.includes(' ')) {
-  //     return;
-  //   }
-
-  //   // Allow digits
-  //   if (/[0-9]/.test(char)) {
-  //     const parts = value.split(' ');
-
-  //     // If space exists
-  //     if (parts.length === 2) {
-  //       const numberPartStart = value.indexOf(' ') + 1;
-
-  //       // Restrict to 10 digits after space
-  //       if (cursorPos >= numberPartStart) {
-  //         if (parts[1].length >= 10) {
-  //           event.preventDefault();
-  //         }
-  //       }
-  //     }
-  //     return;
-  //   }
-
-  //   event.preventDefault();
-  // }
-
   allowOnlyPhone(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
     const value = input.value;
 
-    // Allow control keys
     if (
       event.key === 'Backspace' ||
       event.key === 'Delete' ||
@@ -158,10 +110,17 @@ export class HomeComponent {
       return;
     }
 
-    // Allow digits only
+    // Allow only one space and not at beginning
+    if (event.key === ' ') {
+      if (value.includes(' ') || value.length === 0) {
+        event.preventDefault();
+      }
+      return;
+    }
+
+    // Allow digits
     if (/[0-9]/.test(event.key)) {
-      // Prevent more than 15 digits (excluding +)
-      const digitsOnly = value.replace('+', '');
+      const digitsOnly = value.replace(/\D/g, '');
       if (digitsOnly.length >= 15) {
         event.preventDefault();
       }
@@ -169,5 +128,25 @@ export class HomeComponent {
     }
 
     event.preventDefault();
+  }
+
+  cleanPhoneInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    // Allow only digits, + and space
+    let value = input.value.replace(/[^0-9+ ]/g, '');
+
+    // Ensure only one + and only at start
+    if (value.includes('+')) {
+      value = '+' + value.replace(/\+/g, '').replace(/^/, '');
+    }
+
+    // Allow only one space
+    const parts = value.split(' ');
+    if (parts.length > 2) {
+      value = parts[0] + ' ' + parts.slice(1).join('').replace(/\s/g, '');
+    }
+
+    input.value = value;
   }
 }
